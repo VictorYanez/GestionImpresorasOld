@@ -1,0 +1,53 @@
+﻿@using GestionImpresoras.Models;
+@using GestionImpresoras.ViewModels;
+@model ImpresoraViewModel
+
+@{
+    ViewData["Title"] = "Crear nueva Impresora";
+}
+<h1>Crear Impresora</h1>
+<h5>Se refiere a las Impresora utilizadas en la institución </h5>
+    <form asp-action="Crear" asp-controller="Impresoras" method="post">
+
+    <div class="mb-3">
+        <label asp-for="vImpresora.CodigoActivoFijo " class="form-label">Codigo Activo Fijo</label>
+        <input type="text" asp-for="vImpresora.CodigoActivoFijo" class="form-control" placeholder="Ingrese el Codigo Activo Fijo" />
+        <span asp-validation-for="vImpresora.CodigoActivoFijo" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="vImpresora.Marca" class="form-label">Marca</label>
+        <input type="text" asp-for="vImpresora.Marca" class="form-control" placeholder="Ingrese la Marca"/>
+        <span asp-validation-for="vImpresora.Marca" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="vImpresora.Modelo" class="form-label">Modelo</label>
+        <input type="text" asp-for="vImpresora.Modelo" class="form-control" placeholder="Ingrese el Modelo" />
+        <span asp-validation-for="vImpresora.Modelo" class="text-danger"></span>
+    </div> 
+
+    <!--- Para Lista de Estados   -->
+    <div class="mb-3">
+        <label asp-for="vImpresora.EstadoId" class="form-label">Estado</label>
+        <select class="form-select form-select sm" asp-for="vImpresora.EstadoId" asp-items="@Model.vListaEstado">
+        <option > --- Seleccionar ---</option></select>
+        <span asp-validation-for="vImpresora.Estado" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="vImpresora.DireccionIP" class="form-label">Direccion IP</label>
+        <input type="text" asp-for="vImpresora.DireccionIP" class="form-control" placeholder="Ingrese la Dirección IP" />
+        <span asp-validation-for="vImpresora.DireccionIP" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="vImpresora.Caracteristicas" class="form-label">Caracteristicas</label>
+        <input type="text" asp-for="vImpresora.Caracteristicas" class="form-control" placeholder="Ingrese las Caracteristicas" />
+        <span asp-validation-for="vImpresora.Caracteristicas" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+    <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+
+</form>
