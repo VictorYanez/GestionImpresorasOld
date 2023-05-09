@@ -15,23 +15,27 @@
         <span asp-validation-for="vImpresora.CodigoActivoFijo" class="text-danger"></span>
     </div>
 
+        <!--- Para Lista de Marca   -->
     <div class="mb-3">
-        <label asp-for="vImpresora.Marca" class="form-label">Marca</label>
-        <input type="text" asp-for="vImpresora.Marca" class="form-control" placeholder="Ingrese la Marca"/>
+        <label asp-for="vImpresora.MarcaId" class="form-label">Marca</label>
+        <select class="form-select form-select sm" asp-for="vImpresora.MarcaId" asp-items="@Model.vListaMarca">
+        <option > --- Seleccionar Marca --- </option></select>
         <span asp-validation-for="vImpresora.Marca" class="text-danger"></span>
     </div>
 
+        <!--- Para Lista de Modelo   -->
     <div class="mb-3">
-        <label asp-for="vImpresora.Modelo" class="form-label">Modelo</label>
-        <input type="text" asp-for="vImpresora.Modelo" class="form-control" placeholder="Ingrese el Modelo" />
+        <label asp-for="vImpresora.ModeloId" class="form-label">Modelo</label>
+        <select class="form-select form-select sm" asp-for="vImpresora.ModeloId" asp-items="@Model.vListaModelo">
+        <option > --- Seleccionar Modelo --- </option></select>
         <span asp-validation-for="vImpresora.Modelo" class="text-danger"></span>
-    </div> 
+    </div>
 
     <!--- Para Lista de Estados   -->
     <div class="mb-3">
         <label asp-for="vImpresora.EstadoId" class="form-label">Estado</label>
         <select class="form-select form-select sm" asp-for="vImpresora.EstadoId" asp-items="@Model.vListaEstado">
-        <option > --- Seleccionar ---</option></select>
+        <option > --- Seleccionar Estado --- </option></select>
         <span asp-validation-for="vImpresora.Estado" class="text-danger"></span>
     </div>
 
@@ -39,6 +43,23 @@
         <label asp-for="vImpresora.DireccionIP" class="form-label">Direccion IP</label>
         <input type="text" asp-for="vImpresora.DireccionIP" class="form-control" placeholder="Ingrese la Dirección IP" />
         <span asp-validation-for="vImpresora.DireccionIP" class="text-danger"></span>
+    </div>
+
+
+        <!--- Para Lista de Area   -->
+    <div class="mb-3">
+        <label asp-for="vImpresora.AreaId" class="form-label">Area</label>
+        <select class="form-select form-select sm" asp-for="vImpresora.AreaId" asp-items="@Model.vListaArea">
+        <option > --- Seleccionar Area --- </option></select>
+        <span asp-validation-for="vImpresora.Area" class="text-danger"></span>
+    </div>
+
+        <!--- Para Lista de Unidad   -->
+    <div class="mb-3">
+        <label asp-for="vImpresora.UnidadId" class="form-label">Unidad</label>
+        <select class="form-select form-select sm" asp-for="vImpresora.UnidadId" asp-items="@Model.vListaUnidad">
+        <option > --- Seleccionar Unidad --- </option></select>
+        <span asp-validation-for="vImpresora.Unidad" class="text-danger"></span>
     </div>
 
     <div class="mb-3">

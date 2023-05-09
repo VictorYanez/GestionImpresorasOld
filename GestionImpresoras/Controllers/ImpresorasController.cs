@@ -32,8 +32,28 @@ namespace GestionImpresoras.Controllers
                 vImpresora = new Impresora(),
                 vListaEstado = _contexto.Estados.Select(estado => new SelectListItem()
                 {
-                    Text = estado.Descripcion,
+                    Text = estado.Nombre,
                     Value = estado.Id.ToString()
+                }).ToList(),
+                vListaMarca = _contexto.Marcas.Select(marca => new SelectListItem()
+                {
+                    Text = marca.Nombre,
+                    Value = marca.Id.ToString()
+                }).ToList(),
+                vListaModelo = _contexto.Modelos.Select(modelo => new SelectListItem()
+                {
+                    Text = modelo.Nombre,
+                    Value = modelo.Id.ToString()
+                }).ToList(),
+                vListaArea = _contexto.Areas.Select(area => new SelectListItem()
+                {
+                    Text = area.Nombre,
+                    Value = area.Id.ToString()
+                }).ToList(),
+                vListaUnidad = _contexto.Unidades.Select(unidad => new SelectListItem()
+                {
+                    Text = unidad.Nombre,
+                    Value = unidad.Id.ToString()
                 }).ToList()
             };
 
