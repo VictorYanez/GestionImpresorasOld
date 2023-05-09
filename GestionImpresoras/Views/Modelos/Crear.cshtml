@@ -1,0 +1,35 @@
+﻿@using GestionImpresoras.Models;
+@using GestionImpresoras.ViewModels;
+@model ModeloViewModel
+
+@{
+    ViewData["Title"] = "Crear nuevo Modelo";
+}
+<h1>Crear Modelo</h1>
+<h5>Se refiere a los Modelos para cada una de las marcas de impresoras </h5>
+    <form asp-action="Crear" asp-controller="Modelos" method="post">
+
+    <div class="mb-3">
+        <label asp-for="vModelo.Nombre" class="form-label">Nombre</label>
+        <input type="text" asp-for="vModelo.Nombre" class="form-control" placeholder="Ingrese el Nombre"/>
+        <span asp-validation-for="vModelo.Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="vModelo.Descripcion" class="form-label">Descripción</label>
+        <input type="text" asp-for="vModelo.Descripcion" class="form-control" placeholder="Ingrese la Descripción" />
+        <span asp-validation-for="vModelo.Descripcion" class="text-danger"></span>
+    </div> 
+
+    <!--- Para Lista de Marcas   -->
+    <div class="mb-3">
+        <label asp-for="vModelo.MarcaId" class="form-label">Marca</label>
+        <select class="form-select form-select sm" asp-for="vModelo.MarcaId" asp-items="@Model.vListaMarcas">
+        <option > --- Seleccionar ---</option></select>
+        <span asp-validation-for="vModelo.Marca" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+    <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+
+</form>

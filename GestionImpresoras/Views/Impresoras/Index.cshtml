@@ -32,8 +32,8 @@
                                 <th>@Html.DisplayNameFor(m => m.CodigoActivoFijo)</th>
                                 <th>@Html.DisplayNameFor(m => m.Marca)</th>
                                 <th>@Html.DisplayNameFor(m => m.Modelo)</th>
-                                <th>@Html.DisplayNameFor(m => m.EstadoId)</th>
-                                <th>@Html.DisplayNameFor(m => m.Estado.Nombre)</th>
+                                @*<th>@Html.DisplayNameFor(m => m.EstadoId)</th> *@
+                                <th>@Html.DisplayNameFor(m => m.Estado)</th>
                                 <th>@Html.DisplayNameFor(m => m.DireccionIP)</th>
                                 <th>@Html.DisplayNameFor(m => m.Caracteristicas)</th>
                                 <th>Acciones</th>
@@ -46,8 +46,8 @@
                                     <td>@Html.DisplayFor(m => item.CodigoActivoFijo)</td>
                                     <td>@Html.DisplayFor(m => item.Marca)</td>
                                     <td>@Html.DisplayFor(m => item.Modelo)</td>
-                                     <td>@Html.DisplayFor(m => item.EstadoId)</td>
-                                     <td>@Html.DisplayFor(m => item.Estado.Nombre)</td>
+                                    @* <td>@Html.DisplayFor(m => item.EstadoId)</td>  *@
+                                    <td>@Html.DisplayFor(m => item.Estado.Nombre)</td>
                                     <td>@Html.DisplayFor(m => item.DireccionIP)</td>
                                     <td>@Html.DisplayFor(m => item.Caracteristicas)</td>
                                     <td>

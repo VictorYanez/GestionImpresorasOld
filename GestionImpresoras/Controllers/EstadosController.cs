@@ -17,8 +17,8 @@ namespace GestionImpresoras.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var temp = await _contexto.Estados.ToListAsync();
-            return View(temp);
+            var listado = await _contexto.Estados.ToListAsync();
+            return View(listado);
         }
 
         [HttpGet]

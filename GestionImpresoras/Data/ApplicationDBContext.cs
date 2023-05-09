@@ -13,7 +13,7 @@ namespace GestionImpresoras.Data
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
         {
         }
-     
+
         /*
         protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {
@@ -22,8 +22,13 @@ namespace GestionImpresoras.Data
         }
        */
         // Definición de Modelos del Sistema
-        public DbSet<Impresora> Impresoras { get; set; }
+        public DbSet<Area> Areas { get; set; }
+        public DbSet<Unidad> Unidades { get; set; }
+        public DbSet<Marca> Marcas { get; set; }
+        public DbSet<Modelo> Modelos { get; set; }
         public DbSet<Estado> Estados { get; set; }
+        public DbSet<Impresora> Impresoras { get; set; }
+
 
     }
 }

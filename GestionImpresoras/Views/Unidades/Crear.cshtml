@@ -1,0 +1,35 @@
+﻿@using GestionImpresoras.Models;
+@using GestionImpresoras.ViewModels;
+@model UnidadViewModel
+
+@{
+    ViewData["Title"] = "Crear nueva Unidad";
+}
+<h1>Crear Unidad</h1>
+<h5>Se refiere a los unidades que conforman las áreas de la institución </h5>
+    <form asp-action="Crear" asp-controller="Unidades" method="post">
+
+    <div class="mb-3">
+        <label asp-for="vUnidad.Nombre" class="form-label">Nombre</label>
+        <input type="text" asp-for="vUnidad.Nombre" class="form-control" placeholder="Ingrese el Nombre" />
+        <span asp-validation-for="vUnidad.Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="vUnidad.Descripcion" class="form-label">Descripción</label>
+        <input type="text" asp-for="vUnidad.Descripcion" class="form-control" placeholder="Ingrese la Descripción" />
+        <span asp-validation-for="vUnidad.Descripcion" class="text-danger"></span>
+    </div> 
+
+    <!--- Para Lista de Marcas   -->
+    <div class="mb-3">
+        <label asp-for="vUnidad.AreaId" class="form-label">Area</label>
+        <select class="form-select form-select sm" asp-for="vUnidad.AreaId" asp-items="@Model.vListaAreas">
+        <option > --- Seleccionar ---</option></select>
+        <span asp-validation-for="vUnidad.Area" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+    <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+
+</form>
