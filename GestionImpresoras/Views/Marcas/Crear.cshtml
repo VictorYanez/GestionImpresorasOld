@@ -10,10 +10,21 @@
 
     <form asp-action="Crear" asp-controller="Marcas" method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
     <div class="mb-3">
         <label asp-for="Nombre" class="form-label">Nombre</label>
         <input type="text" asp-for="Nombre" class="form-control" placeholder="Ingresa el nombre de la Marca" />
         <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+
+     <!--- Para Lista de Unidad   -->
+    <div class="mb-3">
+        <asp:DropDownList id="ddlArea" runat="server" OnSelectedIndexChanged="ddlEstado_SelectedIndesxChanged" AutoPostBack="true"></asp:DropDownList>
+
+        <label asp-for="Descripcion" class="form-label">Descripcion</label>
+        <input type="text" asp-for="Descripcion" class="form-control" placeholder="Ingresa la descripción del Estado" />
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
     </div>
 
     <div class="mb-3">

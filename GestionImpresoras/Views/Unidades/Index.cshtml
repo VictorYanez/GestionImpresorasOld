@@ -30,9 +30,9 @@
                     <table class="table table-bordered" id="tablaUnidades" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th>@Html.DisplayNameFor(m => m.Area)</th>
                                 <th>@Html.DisplayNameFor(m => m.Nombre)</th>
                                 <th>@Html.DisplayNameFor(m => m.Descripcion)</th>
-                                <th>@Html.DisplayNameFor(m => m.Area)</th>
                                 @*<th>@Html.DisplayNameFor(m => m.AreaId)</th> *@
                                 <th>Acciones</th>
                             </tr>
@@ -41,9 +41,10 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
+                                    <td>@Html.DisplayFor(m => item.Area.Nombre)</td>
                                     <td>@Html.DisplayFor(m => item.Nombre)</td>
                                     <td>@Html.DisplayFor(m => item.Descripcion)</td>
-                                    <td>@Html.DisplayFor(m => item.Area.Nombre)</td>
+
                                     @* <td>@Html.DisplayFor(m => item.MarcaId)</td>  *@
 
                                     <td>

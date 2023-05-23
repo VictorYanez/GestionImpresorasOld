@@ -8,6 +8,7 @@ namespace GestionImpresoras.Models
     {
         [Key]       
         public int Id { get; set; }
+        [Display(Name = "Estado")]
         [Required(ErrorMessage = "El campo {0} es requerido")]
         public String Nombre { get; set; }
 

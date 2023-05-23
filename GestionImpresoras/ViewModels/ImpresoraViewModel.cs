@@ -6,6 +6,8 @@ namespace GestionImpresoras.ViewModels
     public class ImpresoraViewModel
     {
         public Impresora vImpresora { get; set; }
+
+        //-----  Listas para la seleccion de Opciones -------------
         public List<SelectListItem> vListaEstado { get; set; }
         //---------------------------------------------------------
         public List<SelectListItem> vListaMarca { get; set; }

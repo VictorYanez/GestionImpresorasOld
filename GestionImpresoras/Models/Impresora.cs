@@ -20,6 +20,7 @@ namespace GestionImpresoras.Models
         public virtual Marca Marca { get; set; } = null!; //Perdonar el nulo? y Ademas propiedad de navegacion 
 
         public int ModeloId { get; set; }
+        [Range(1, int.MaxValue, ErrorMessage = "El campo {0} es requerido")]
         [Display(Name = "Modelo")]
         public virtual Modelo Modelo { get; set; } = null!; 
 
@@ -27,8 +28,8 @@ namespace GestionImpresoras.Models
         [Display(Name = "Estado")]
         public virtual Estado Estado { get; set; } = null!; 
 
-        [Display(Name = "Color")]
-        public bool EsdeColor { get; set; }
+        //[Display(Name = "Color")]
+        //public bool EsdeColor { get; set; }
 
         [StringLength(15)]
         [Display(Name = "IP")]
@@ -39,6 +40,7 @@ namespace GestionImpresoras.Models
         [Display(Name = "Area")]
         public virtual Area Area { get; set; } = null!; //Perdonar el nulo? y Ademas propiedad de navegacion 
 
+        [Range(1,int.MaxValue, ErrorMessage ="El campo {0} es requerido")]
         public int UnidadId { get; set; }
         [Display(Name = "Unidad")]
         public virtual Unidad Unidad { get; set; } = null!;

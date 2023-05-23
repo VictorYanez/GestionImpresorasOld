@@ -9,6 +9,7 @@ namespace GestionImpresoras.Models
         [Key]   
         public int Id { get; set; }
         //[Remote(action: "VerificarExisteInstitucion", controller: "Instituciones", ErrorMessage = "Validacion Remota funionando")]
+        [Display(Name = "Institución")]
         [Required(ErrorMessage = "El campo {0} es requerido")]
         public String Nombre { get; set; }
 

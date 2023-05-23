@@ -19,7 +19,7 @@
     <div class="col-12">
         <div class="card border">
             <div class="card-header">
-                <h3><strong>Listado de Modelos</strong></h3>
+                <h3><strong>Listado de @Model.Count() Modelos</strong></h3>
             </div>
         </div>
         <div class="card-body">
@@ -29,9 +29,9 @@
                     <table class="table table-bordered" id="tablaImpresoras" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th>@Html.DisplayNameFor(m => m.Marca)</th>
                                 <th>@Html.DisplayNameFor(m => m.Nombre)</th>
                                 <th>@Html.DisplayNameFor(m => m.Descripcion)</th>
-                                <th>@Html.DisplayNameFor(m => m.Marca)</th>
                                 @*<th>@Html.DisplayNameFor(m => m.MarcaId)</th> *@
                                 <th>Acciones</th>
                             </tr>
@@ -40,9 +40,9 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
+                                    <td>@Html.DisplayFor(m => item.Marca.Nombre)</td>
                                     <td>@Html.DisplayFor(m => item.Nombre)</td>
                                     <td>@Html.DisplayFor(m => item.Descripcion)</td>
-                                    <td>@Html.DisplayFor(m => item.Marca.Nombre)</td>
                                     @* <td>@Html.DisplayFor(m => item.MarcaId)</td>  *@
 
                                     <td>

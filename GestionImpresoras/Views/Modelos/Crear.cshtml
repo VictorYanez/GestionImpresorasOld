@@ -1,6 +1,6 @@
 ﻿@using GestionImpresoras.Models;
 @using GestionImpresoras.ViewModels;
-@model ModeloViewModel
+@model Modelo //ModeloViewModel cuando hice uso de ViewModel  
 
 @{
     ViewData["Title"] = "Crear nuevo Modelo";
@@ -8,20 +8,34 @@
 <h1>Crear Modelo</h1>
 <h5>Se refiere a los Modelos para cada una de las marcas de impresoras </h5>
     <form asp-action="Crear" asp-controller="Modelos" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-    <div class="mb-3">
-        <label asp-for="vModelo.Nombre" class="form-label">Nombre</label>
-        <input type="text" asp-for="vModelo.Nombre" class="form-control" placeholder="Ingrese el Nombre"/>
-        <span asp-validation-for="vModelo.Nombre" class="text-danger"></span>
+    <!--- Para Lista de Marcas   -->
+    <div class="form-group mb-3">
+        <label asp-for="MarcaId" class="form-label">Area</label>
+        <select asp-for="MarcaId" class="form-select form-select sm" asp-items="ViewBag.MarcaId">
+            <option> --- Seleccionar ---</option>
+        </select>
+        <span asp-validation-for="MarcaId" class="text-danger"></span>
     </div>
 
     <div class="mb-3">
-        <label asp-for="vModelo.Descripcion" class="form-label">Descripción</label>
-        <input type="text" asp-for="vModelo.Descripcion" class="form-control" placeholder="Ingrese la Descripción" />
-        <span asp-validation-for="vModelo.Descripcion" class="text-danger"></span>
+        <label asp-for="Nombre" class="form-label">Nombre</label>
+        <input type="text" asp-for="Nombre" class="form-control" placeholder="Ingrese el Nombre"/>
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Descripcion" class="form-label">Descripción</label>
+        <input type="text" asp-for="Descripcion" class="form-control" placeholder="Ingrese la Descripción" />
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
     </div> 
 
-    <!--- Para Lista de Marcas   -->
+    <button type="submit" class="btn btn-primary"><i class="bi bi-send-plus"></i> Enviar</button>
+    <a class="btn btn-secondary" asp-action="Index"><i class="bi bi-stop-circle"> Cancelar</i></a>
+
+@*
+    <!--- Codigo Youtube y Mix FG, funcionó    -->
     <div class="mb-3">
         <label asp-for="vModelo.MarcaId" class="form-label">Marca</label>
         <select class="form-select form-select sm" asp-for="vModelo.MarcaId" asp-items="@Model.vListaMarcas">
@@ -29,7 +43,42 @@
         <span asp-validation-for="vModelo.Marca" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Enviar</button>
-    <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
-
+    <!--- Codigo Hector de León  --->
+    <div class="mb-3 form-group">
+        <label asp-for="vModelo.MarcaId" class="form-label">Marca</label>
+        @Html.DropDownList("Modelos",Model.vListaMarcas, new { @class="form-control"})
+        <span asp-validation-for="vModelo.Marca" class="text-danger"></span>
+    </div>
+*@
 </form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <!-------   Codigo para recargar listado de Marcas  ------------------->
+        <script>
+        $(document).ready(function () {
+            $("#Nombre").blur(function () {
+                if ($("#MarcaId").val() === "--- Seleccionar ---") {
+                    alert("Debe seleccionar una marca.");
+                    $("#MarcaId").focus();
+                }
+            });
+        });
+    </script>
+
+     <!---------------  Codigo para actualización dinamica  ------------->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#MarcaId").change(function () {
+                $.get("/Modelos/GetModelos", { MarcaId: $("#MarcaId").val() }, function (data) {
+                    $("#ModeloId").empty();
+                    $.each(data, function (index, row) {
+                        $("#ModeloId").append("<option value='" + row.id + "'>" + row.nombre + "</option>")
+                    });
+                });
+            })
+        });
+    </script>
+}

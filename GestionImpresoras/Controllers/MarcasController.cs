@@ -15,10 +15,28 @@ namespace GestionImpresoras.Controllers
         }
 
         [HttpGet]
+        //  Codigo para la vista index con la tabla  
         public async Task<IActionResult> Index()
         {
-            var listado = await _contexto.Marcas.ToListAsync();
+            //Codigo utilizando merge de codigo Hector de Leon, FG, R2W
+            var listado = await _contexto.Marcas.OrderBy(m => m.Nombre).ToListAsync();
             return View(listado);
+        }
+
+        [HttpGet]
+        // Codigo para Get y SelectListItem de FG
+        public async Task<ActionResult<List<Marca>>> Get()
+        {
+            var listado = await _contexto.Marcas.ToListAsync();
+            return listado;
+        }
+
+
+        [HttpGet("{marcaId}/modelo")]
+        // Codigo FG  para listado de Modelos en vistas Blazor
+        public async Task<List<Modelo>> GetEstados(int marcaId)
+        {
+            return  await _contexto.Modelos.Where(m => m.MarcaId == marcaId).OrderBy(m => m.Nombre).ToListAsync();
         }
 
         [HttpGet]

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="text-center">CRUD Impresoras</h1>
+<h1 class="text-center">CRUD de @Model.Count() Impresoras</h1>
 <div class="row">
     <div class="offset-9 col-3 mb-3">
         <div class="float-right">
@@ -32,10 +32,8 @@
                                 <th>@Html.DisplayNameFor(m => m.CodigoActivoFijo)</th>
                                 <th>@Html.DisplayNameFor(m => m.Marca)</th>
                                 <th>@Html.DisplayNameFor(m => m.Modelo)</th>
-                                @*<th>@Html.DisplayNameFor(m => m.EstadoId)</th> *@
                                 <th>@Html.DisplayNameFor(m => m.Estado)</th>
                                 <th>@Html.DisplayNameFor(m => m.DireccionIP)</th>
-                                <th>@Html.DisplayNameFor(m => m.Caracteristicas)</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -44,12 +42,10 @@
                             {
                                 <tr>
                                     <td>@Html.DisplayFor(m => item.CodigoActivoFijo)</td>
-                                    <td>@Html.DisplayFor(m => item.Marca)</td>
-                                    <td>@Html.DisplayFor(m => item.Modelo)</td>
-                                    @* <td>@Html.DisplayFor(m => item.EstadoId)</td>  *@
+                                    <td>@Html.DisplayFor(m => item.Marca.Nombre)</td>
+                                    <td>@Html.DisplayFor(m => item.Modelo.Nombre)</td>
                                     <td>@Html.DisplayFor(m => item.Estado.Nombre)</td>
                                     <td>@Html.DisplayFor(m => item.DireccionIP)</td>
-                                    <td>@Html.DisplayFor(m => item.Caracteristicas)</td>
                                     <td>
                                         <a class="btn btn-primary" asp-action="Editar" asp-route-id="@item.Id">
                                             <i class="bi bi-pencil"></i> Editar

@@ -13,5 +13,6 @@ namespace GestionImpresoras.Models
 
         [StringLength(200)]
         public string Descripcion { get; set; }
+        public List<Unidad> Unidades { get; set; }
     }
 }
